@@ -57,12 +57,12 @@ function init() {
 	controls.target.set( 0, 0, 0 );
 	controls.update();
 
-	var groundMesh = new THREE.Mesh( new THREE.PlaneBufferGeometry( 2000, 2000 ), new THREE.MeshPhongMaterial( { color: 0x999999, depthWrite: false } ) );
+	var groundMesh = new THREE.Mesh( new THREE.PlaneBufferGeometry( 1500, 1500 ), new THREE.MeshPhongMaterial( { color: 0xaaaaaa, depthWrite: false } ) );
     groundMesh.rotation.x = - Math.PI / 2;
     groundMesh.receiveShadow = true;
     scene.add( groundMesh );
 
-    var grid = new THREE.GridHelper( 2000, 20, 0x000000, 0x000000 );
+    var grid = new THREE.GridHelper(2000, 30, 0x000000, 0x000000 );
     grid.material.opacity = 0.2;
     grid.material.transparent = true;
     scene.add( grid );
@@ -78,7 +78,7 @@ function init() {
 function fbxLoad(){
     var loader = new FBXLoader();
     loader.load( './3d/fbx/drone_02.FBX', function ( object ) {
-
+        
         object.traverse( function ( child ) {
 
             if ( child.isMesh ) {
